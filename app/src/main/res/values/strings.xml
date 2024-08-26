@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ClothingApp</string>
+    <string name="highlighted_text">Find Cool <font color='#65DACC'><b>Product</b></font> fit Your Style</string>
+    <string name="curved_image_view">Curved image view</string>
+    <string name="formal_wear_collection">FORMAL WEAR COLLECTION</string>
+    <string name="shop_now">Shop Now</string>
+    <string name="curved_image_view1">Curved image view</string>
+    <string name="casual_wear_collection">CASUAL WEAR COLLECTION</string>
+    <string name="men">Men</string>
+    <string name="shop_now1">Shop Now</string>
+    <string name="shop_now2">Shop Now</string>
+    <string name="innerwear_collection">INNERWEAR COLLECTION</string>
+    <string name="curved_image_view2">Curved image view</string>
+    <string name="sportswear_collection">SPORTSWEAR COLLECTION</string>
+    <string name="curved_image_view3">Curved image view</string>
+    <string name="shop_now3">Shop Now</string>
+</resources>
