@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.clothingapp.MainActivity;
+import com.example.clothingapp.ProductListActivity;
 import com.example.clothingapp.R;
 import com.example.clothingapp.SubCategoryListActivity;
 import com.example.clothingapp.model.ProductSubCategory;
@@ -59,7 +60,7 @@ public class SubCategoryListActivityAdapter extends ArrayAdapter<ProductSubCateg
             viewHolder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(mContext, SubCategoryListActivity.class);
+                    Intent intent = new Intent(mContext, ProductListActivity.class);
                     intent.putExtra("id", subCategory.getId());
                     mContext.startActivity(intent);
                 }
