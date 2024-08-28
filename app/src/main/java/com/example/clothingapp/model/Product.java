@@ -7,9 +7,9 @@ public class Product {
     private int price;
     private String subCategoryId;
 
-
-
-
+    public Product() {
+        // Default constructor required for calls to DataSnapshot.getValue(Product.class)
+    }
 
     public Product(String id, String name, String image,int price,String subCategoryId) {
         this.id = id;

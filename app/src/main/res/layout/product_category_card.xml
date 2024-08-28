@@ -15,7 +15,7 @@
         android:clipToOutline="true"
         android:contentDescription="Curved image view"
         android:scaleType="centerCrop"
-        android:src="@drawable/womenmain"
+        android:src="@drawable/category_bg_women"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

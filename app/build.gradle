@@ -29,7 +29,6 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.22"))
     implementation 'com.google.android.material:material:1.5.0'
@@ -37,6 +36,10 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:33.1.2')
     implementation 'com.google.firebase:firebase-database:20.2.0'
     implementation 'com.google.firebase:firebase-firestore:25.1.0'
+
+    // Picasso library - Used to load images from the internet
+    implementation 'com.squareup.picasso:picasso:2.8'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'

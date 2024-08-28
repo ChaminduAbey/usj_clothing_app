@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "511587828019",
+    "firebase_url": "https://usjclothingapp-4614f-default-rtdb.firebaseio.com",
+    "project_id": "usjclothingapp-4614f",
+    "storage_bucket": "usjclothingapp-4614f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511587828019:android:1029955eeae6f67149fe46",
+        "android_client_info": {
+          "package_name": "com.example.clothingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC03OK_3ov-GFF-KdhVISnp4zIs9WxEuo4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

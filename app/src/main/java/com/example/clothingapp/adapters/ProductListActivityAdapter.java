@@ -1,47 +1,69 @@
 package com.example.clothingapp.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-public class ProductListActivityAdapter extends BaseAdapter {
-    private Context context;
-    private int[] imageIds;
+import com.example.clothingapp.R;
+import com.example.clothingapp.SubCategoryListActivity;
+import com.example.clothingapp.model.Product;
+import com.example.clothingapp.model.ProductCategory;
+import com.squareup.picasso.Picasso;
 
-    public ProductListActivityAdapter(Context context, int[] imageIds) {
-        this.context = context;
-        this.imageIds = imageIds;
+import java.util.List;
+
+public class ProductListActivityAdapter extends ArrayAdapter<Product> {
+    private Context mContext;
+    private int mResource;
+
+    public ProductListActivityAdapter(Context context, int resource, List<Product> notes) {
+        super(context, resource, notes);
+        mContext = context;
+        mResource = resource;
     }
 
-    @Override
-    public int getCount() {
-        return imageIds.length;
+    // View holder class to hold the views of the list view item
+    private static class ViewHolder {
+        TextView txtViewName;
+        TextView txtViewPrice;
+        ImageView imageView;
     }
 
-    @Override
-    public Object getItem(int position) {
-        return imageIds[position];
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
+    // Get the view of the list view item
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+        ViewHolder viewHolder;
+        // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            imageView = new ImageView(context);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(200, 200));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8, 8, 8, 8);
+            LayoutInflater inflater = LayoutInflater.from(mContext);
+            convertView = inflater.inflate(mResource, parent, false);
+
+            viewHolder = new ViewHolder();
+            viewHolder.txtViewName = convertView.findViewById(R.id.nameTxtView);
+            viewHolder.txtViewPrice = convertView.findViewById(R.id.priceTxtView);
+            viewHolder.imageView = convertView.findViewById(R.id.imageView);
+            convertView.setTag(viewHolder);
         } else {
-            imageView = (ImageView) convertView;
+            viewHolder = (ViewHolder) convertView.getTag();
         }
-        imageView.setImageResource(imageIds[position]);
-        return imageView;
+
+        Product product = getItem(position);
+
+        if (product != null) {
+            // Populate the data into the template view using the data object
+            viewHolder.txtViewName.setText(product.getName());
+            viewHolder.txtViewPrice.setText(String.valueOf(product.getPrice()));
+
+            Picasso.get().load(product.getImage()).into(viewHolder.imageView);
+        }
+
+        return convertView;
     }
 }

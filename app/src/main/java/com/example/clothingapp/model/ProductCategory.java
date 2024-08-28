@@ -5,10 +5,6 @@ public class ProductCategory {
     private String name;
     private String image;
 
-
-    public ProductCategory() {
-        // You can set default values here (optional)
-    }
     public ProductCategory(String id, String name, String image) {
         this.id = id;
         this.name = name;
@@ -26,6 +22,5 @@ public class ProductCategory {
     public String getImage() {
         return image;
     }
-
 
 }

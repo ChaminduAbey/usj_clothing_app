@@ -29,30 +29,34 @@ import java.util.Map;
 
 public class SubCategoryListActivity extends AppCompatActivity {
 
-    ListView listView;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_sub_category_list);
 
-        String id = getIntent().getStringExtra("id");
-
-        List<ProductSubCategory> subCategories = ProductSubCategoryData.getAllProductSubCategoriesByCategory(id);
-        ProductCategory productCategory = ProductCategoryData.getProductCategoryById(id);
-
+        // Set the list view
         listView = findViewById(R.id.listview);
 
-        TextView titleTxtView = findViewById(R.id.titleTxtView);
+        // Get the id of the product category
+        String id = getIntent().getStringExtra("id");
 
+        // Get the product category
+        ProductCategory productCategory = ProductCategoryData.getProductCategoryById(id);
+
+        // // Set the title of the activity to the name of the product category
+        TextView titleTxtView = findViewById(R.id.titleTxtView);
         titleTxtView.setText(productCategory.getName());
 
+        // Get the sub categories of the product category
+        List<ProductSubCategory> subCategories = ProductSubCategoryData.getAllProductSubCategoriesByCategory(id);
+
+        // Create the adapter
         SubCategoryListActivityAdapter subCategoryListActivityAdapter = new SubCategoryListActivityAdapter(this, R.layout.product_category_card, subCategories);
 
+        // Set the adapter
         listView.setAdapter(subCategoryListActivityAdapter);
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
     }
 
 

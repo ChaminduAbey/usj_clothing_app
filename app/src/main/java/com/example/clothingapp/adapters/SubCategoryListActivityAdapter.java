@@ -18,6 +18,7 @@ import com.example.clothingapp.model.ProductSubCategory;
 
 import java.util.List;
 
+// Adapter for the sub category list activity list view
 public class SubCategoryListActivityAdapter extends ArrayAdapter<ProductSubCategory> {
     private Context mContext;
     private int mResource;
@@ -28,6 +29,7 @@ public class SubCategoryListActivityAdapter extends ArrayAdapter<ProductSubCateg
         mResource = resource;
     }
 
+    // View holder class to hold the views of the list view item
     private static class ViewHolder {
         TextView txtViewName;
         ImageView imageView;
@@ -37,6 +39,7 @@ public class SubCategoryListActivityAdapter extends ArrayAdapter<ProductSubCateg
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
+        // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(mContext);
             convertView = inflater.inflate(mResource, parent, false);
@@ -54,9 +57,11 @@ public class SubCategoryListActivityAdapter extends ArrayAdapter<ProductSubCateg
         ProductSubCategory subCategory = getItem(position);
 
         if (subCategory != null) {
+            // Populate the data into the template view using the data object
             viewHolder.txtViewName.setText(subCategory.getName());
             viewHolder.imageView.setImageResource(mContext.getResources().getIdentifier(subCategory.getImage(), "drawable", mContext.getPackageName()));
 
+            // Set the button click listener
             viewHolder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
