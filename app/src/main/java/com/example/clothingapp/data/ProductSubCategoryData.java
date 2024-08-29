@@ -27,4 +27,11 @@ public class ProductSubCategoryData {
                 .filter(productSubCategory -> productSubCategory.getCategoryId().equals(categoryId))
                 .collect(Collectors.toList());
     }
+
+    static  public ProductSubCategory getProductSubCategoryById(String id) {
+        return productSubCategoriesList.stream()
+                .filter(productSubCategory -> productSubCategory.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
 }

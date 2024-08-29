@@ -59,7 +59,7 @@ public class ProductListActivityAdapter extends ArrayAdapter<Product> {
         if (product != null) {
             // Populate the data into the template view using the data object
             viewHolder.txtViewName.setText(product.getName());
-            viewHolder.txtViewPrice.setText(String.valueOf(product.getPrice()));
+            viewHolder.txtViewPrice.setText("Rs. " + (product.getPrice()));
 
             Picasso.get().load(product.getImage()).into(viewHolder.imageView);
         }

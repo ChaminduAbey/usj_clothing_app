@@ -24,6 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Clothing Store"
+            android:id="@+id/titleTxtView"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textFontWeight="700"
@@ -39,14 +40,35 @@
         android:paddingVertical="24dp"
         android:paddingHorizontal="16dp"
         android:numColumns="2"
-        android:contentDescription="Main ListView"
+        android:contentDescription="Grid View"
         android:layout_weight="1"
-        android:divider="#00000000"
-        android:dividerHeight="16dp"
+        android:horizontalSpacing="16dp"
+        android:verticalSpacing="16dp"
+        android:visibility="gone"
         >
-
-
-
     </GridView>
+
+    <LinearLayout
+        android:id="@+id/progress_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:visibility="visible"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <ProgressBar
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

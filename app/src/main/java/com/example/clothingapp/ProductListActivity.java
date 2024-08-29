@@ -2,13 +2,18 @@ package com.example.clothingapp;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.GridView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.clothingapp.adapters.ProductListActivityAdapter;
+import com.example.clothingapp.data.ProductSubCategoryData;
 import com.example.clothingapp.model.Product;
+import com.example.clothingapp.model.ProductSubCategory;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +26,7 @@ import java.util.List;
 public class ProductListActivity extends AppCompatActivity {
 
     private GridView gridView;
+    private LinearLayout loadingIndicatorView;
 
     private DatabaseReference mDatabase;
 
@@ -32,11 +38,20 @@ public class ProductListActivity extends AppCompatActivity {
         // Get the subcategory id
         String id = getIntent().getStringExtra("id");
 
+        ProductSubCategory subCategory = ProductSubCategoryData.getProductSubCategoryById(id);
+
+        // Set the title textview
+        TextView titleTxtView = findViewById(R.id.titleTxtView);
+        titleTxtView.setText(subCategory.getName());
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         getProductsFromFirebase(id);
 
         // Set the grid view
         gridView = findViewById(R.id.gridview);
+
+        //set the loading indicator view
+        loadingIndicatorView = findViewById(R.id.progress_bar_layout);
     }
 
     private void getProductsFromFirebase(String subCategoryId) {
@@ -62,6 +77,13 @@ public class ProductListActivity extends AppCompatActivity {
 
                     // Set the adapter
                     gridView.setAdapter(productListActivityAdapter);
+
+                    //hide the loading indicator view
+                    loadingIndicatorView.setVisibility(View.GONE);
+
+                    //show the gridview
+                    gridView.setVisibility(View.VISIBLE);
+
                 }
             }
         });
