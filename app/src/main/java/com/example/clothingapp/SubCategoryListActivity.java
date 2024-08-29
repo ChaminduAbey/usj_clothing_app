@@ -53,7 +53,8 @@ public class SubCategoryListActivity extends AppCompatActivity {
         List<ProductSubCategory> subCategories = ProductSubCategoryData.getAllProductSubCategoriesByCategory(id);
 
         // Create the adapter
-        SubCategoryListActivityAdapter subCategoryListActivityAdapter = new SubCategoryListActivityAdapter(this, R.layout.product_category_card, subCategories);
+        SubCategoryListActivityAdapter subCategoryListActivityAdapter =
+                new SubCategoryListActivityAdapter(this, R.layout.product_category_card, subCategories);
 
         // Set the adapter
         listView.setAdapter(subCategoryListActivityAdapter);
