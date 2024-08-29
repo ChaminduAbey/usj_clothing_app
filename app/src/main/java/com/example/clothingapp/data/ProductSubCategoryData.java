@@ -27,7 +27,7 @@ public class ProductSubCategoryData {
                 .filter(productSubCategory -> productSubCategory.getCategoryId().equals(categoryId))
                 .collect(Collectors.toList());
     }
-
+    // get product sub category by id
     static  public ProductSubCategory getProductSubCategoryById(String id) {
         return productSubCategoriesList.stream()
                 .filter(productSubCategory -> productSubCategory.getId().equals(id))

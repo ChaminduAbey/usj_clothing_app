@@ -1,27 +1,22 @@
 package com.example.clothingapp.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.clothingapp.R;
-import com.example.clothingapp.SubCategoryListActivity;
 import com.example.clothingapp.model.Product;
-import com.example.clothingapp.model.ProductCategory;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class ProductListActivityAdapter extends ArrayAdapter<Product> {
-    private Context mContext;
-    private int mResource;
+    private final Context mContext;
+    private final int mResource;
 
     public ProductListActivityAdapter(Context context, int resource, List<Product> notes) {
         super(context, resource, notes);
@@ -61,6 +56,7 @@ public class ProductListActivityAdapter extends ArrayAdapter<Product> {
             viewHolder.txtViewName.setText(product.getName());
             viewHolder.txtViewPrice.setText("Rs. " + (product.getPrice()));
 
+            // load image using Picasso
             Picasso.get().load(product.getImage()).into(viewHolder.imageView);
         }
 
